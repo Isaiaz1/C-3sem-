@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+
+
+
+void imprime();
+int incrementa(int v);
+int r2 =0;
+int main()
+
+{
+
+
+
+
+    int n = 5;
+   int r = 0;
+  //  int n = 0;
+     r2 = 10;
+    printf("o valor de n = %d antes da funçao\n",n);
+    printf("o valor de r = %d depois da funcao\n ",r);
+
+   r = incrementa(n);
+    printf("o valor de n = %d depois da funcao\n ",n);
+    printf("o valor de r = %d depois da funcao\n ",r);
+
+
+    printf(" o valor de r2 = %d depois da funcao IMPRIME ",r2);
+    imprime();
+    ++r2;
+    printf(" o valor de r2 = %d depois da funcao IMPRIME ",r2);
+    return 0;
+
+}
+
+
+
+void imprime(){
+    int v2=5;
+    int r2= 0;
+    r2 = incrementa(r2);
+
+printf("chamei funcao imprime ");
+printf(" o valor de r2 = %d depois da funcao",r2);
+
+int incrementa(int v){
+    return ++v;
+}
+  }
