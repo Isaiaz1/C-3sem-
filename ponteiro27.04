@@ -1,0 +1,38 @@
+#include <stdio.h>
+void ordena(int *pa, int *pb, int *pc) {
+	int t;
+	//Primeiro passo - Testa a e b
+	if (*pa < *pb) {
+        t = *pa;
+        *pa = *pb;
+        *pb = t;
+	}
+	// Segundo passo - Testa a e c
+	if (*pa < *pc) {
+        t = *pa;
+        *pa = *pc;
+        *pc = t;
+	}
+	// Terceiro passo - Testa b e c
+	if (*pb < *pc) {
+        t = *pb;
+        *pb = *pc;
+        *pc = t;
+	}
+
+}
+int main() {
+	int a, b, c;
+
+	printf("Entre com o primeiro valor (A): ");
+	scanf("%d",&a);
+	printf("\nEntre com o segundo valor (B): ");
+	scanf("%d",&b);
+	printf("\nEntre com o terceiro valor (C): ");
+	scanf("%d",&c);
+
+	ordena(&a, &b, &c);
+
+	printf ("\n A: %d B = %d C: %d", a, b, c);
+
+}
