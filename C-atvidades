@@ -1,0 +1,463 @@
+4.1	Dados uma dist?ncia e o total de litros de combust?vel gasto por um autom?vel para percorr?-la,
+    informe o consumo m?dio.
+    Observa??o: Apresente o resultado com 3 casas decimais de precis?o.
+
+    Dados para teste:
+    Dist?ncia   Litros  Consumo
+    100         10      10.000
+    100         7       14.285
+    237         23.5    10.085
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int    Distancia;
+    float  Litros;
+
+    // Informa a dist?ncia percorrida
+    printf("Distancia Percorrida (Km): ");
+    scanf("%d",&Distancia);
+
+    // Informa o combust?vel consumido
+    printf("\n Litros de Combustivel Consumidos: ");
+    scanf("%f",&Litros);
+
+    // Apresenta o resultado
+    printf("\n O Consumo Medio foi: %8.3f ",(Distancia/Litros));
+
+    getch();
+
+
+    return 0;
+}
+*/
+
+/*
+4.2	Dada um temperatura em graus Fahrenheit, informe o valor correspondente em graus Celsius.
+    F?rmula:  C = (F ? 32) * (5 / 9)
+    Onde: C = Temperatura em graus Celsius, F = Temperatura em graus Fahrenheit
+
+    Dados para teste:
+    Fahrenheit   Celsius
+    72           22.0
+    90,5         32.2
+    -7           -21.5
+    0            -17.6
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float Fahrenheit, Celsius;
+
+    //Informa a temperatura e Graus Fahrenheit (F)
+    printf("Informe a temperatura em graus Fahrenheit (F): ");
+    scanf("%f",&Fahrenheit);
+
+    //Converte o valor de Fahrenheit para Celsius
+    Celsius = ((Fahrenheit - 32) * 0.55);
+
+    // Apresenta a temperatura em Graus Celsius (C
+    printf("\n A temperatura em graus Celsius (C) e: %7.1f",Celsius);
+
+    getch();
+
+    return 0;
+}
+
+*/
+
+/*
+4.3	Dado um ano, informe se ele ? ou n?o bissexto.
+Dica: um ano ? bissexto se ? divis?vel por 4 mas n?o por 100.
+      ou se for divis?vel por 4 e tamb?m por 100 e 400
+
+      Dados para teste:
+      Ano   Resultado
+      2020  ? bissexto
+      2019  N?o ? bissexto
+      1600  ? bissexto
+      1900  N?o ? bissexto
+
+
+#include <stdio.h>
+
+int main()
+{
+    int ano;
+    float resto;
+
+    // Informa o ano para an?lise
+    printf("informe o ano: ");
+    scanf("%d",&ano);
+
+    // Apresenta o resto da divis?o do ano por 4, 100 e 400
+    resto = ano % 4;
+    printf("\n resto da divisao por 4: %.3f",resto);
+
+    resto = ano % 100;
+    printf("\n resto da divisao por 100: %.3f",resto);
+
+    resto = ano % 400;
+    printf("\n resto da divisao por 400: %.3f",resto);
+
+    // Verifica se ano ? bissexto ou n?o
+    if ((ano % 4) == 0 && (ano % 100) != 0)  printf("\n *** ano E bissexto ***");
+    else {
+         if ((ano % 4) == 0 && (ano % 100) == 0 && (ano % 400) == 0) printf("\n **** ano E bissexto ****");
+         else printf("\n ***** ano NAO e bissexto *****");
+         }
+    //getch();
+
+    return 0;
+}
+*/
+
+/*
+
+4.4	Numa faculdade, os alunos com m?dia pelo menos 7,0 s?o aprovados,
+    aqueles com m?dia inferior a 3,0 s?o reprovados
+    e os demais ficam de recupera??o.
+    Dadas as duas notas de um aluno, calcule sua m?dia (m?dia aritm?tica simples)
+    e informe sua situa??o.
+    Apresente como sa?da a nota m?dia calculada
+    e as mensagens relativas a situa??o final do aluno,
+    a saber ?Aprovado?, ?Reprovado? ou ?Recupera??o?, respectivamente.
+
+
+    Dados para teste:
+    Nota1   Nota2   M?dia   Resultado
+    7       8       7.5     APROVADO
+    3.5     5.5     4.5     EM RECUPERACAO
+    1       4.5     2.8     REPROVADO
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float Nota1, Nota2, Media;
+
+    //Informa aas 2 notas (Nota1 e Nota2)
+    printf("\n Informe as Notas 1 e 2: ");
+    scanf("%f%f",&Nota1,&Nota2);
+
+    //Calcula a M?dia (Nota1 + Nota2) /2
+    Media = ((Nota1 + Nota2)/2);
+
+    // Apresenta Media Calculada
+    printf("\n A Media do Aluno e: %3.1f",Media);
+
+    // Apresenta a situa??o
+    printf("\n Sua situacao final e: ");
+
+    if (Media >= 7.0) printf(" APROVADO");
+    else {
+        if (Media < 3.0) printf(" REPROVADO");
+        else printf(" EM RECUPERACAO");
+        }
+
+    getch();
+
+    return 0;
+}
+*/
+
+/*
+
+4.5	O perfil de uma pessoa pode ser determinado a partir da sua data de nascimento,
+    conforme exemplificado a seguir.
+    Dada uma data de nascimento, entrando com Dia, M?s e Ano,
+    apresente como sa?da o perfil correspondente.
+
+    Dados para teste:
+    Data de Nascimento      Resultado
+    13/06/1970              3 - ATRAENTE
+    19/04/1967              4 - IRRESIST?VEL
+    20/01/2020              1 - SONHADOR
+
+#include <stdio.h>
+
+int main()
+{
+    int Dia, Mes, Ano, Soma, Dividendo, Digito, SeqDig1, SeqDig2, i, R;
+
+
+    // Informa o Dia, M?s e Ano de Nascimento para an?lise
+    printf(" Informe o Dia Mes e Ano de Nascimento no formato (DD MM AAAA) : ");
+    scanf("%d %d %d",&Dia,&Mes,&Ano);
+
+    // Passo 1 - Soma a concatena??o de DD+MM com AAAA
+    Soma = (Dia * 100) + Mes + Ano;
+    printf("\n %d",Soma);
+
+    // Passo 2 - Soma a concatena??o dos 2 primeiros digitos com os 2 ?ltimos
+    // Monta um loop para separa??o de cada digito do numero armazenado em Soma (baseado na divis?o por 10)
+    Dividendo = Soma;
+    i       = 4;
+    SeqDig1 = 0;
+    SeqDig2 = 0;
+    Digito  = 0;
+
+    while ( Dividendo != 0 )
+    {
+        Digito     = Dividendo % 10;
+        Dividendo /= 10;
+
+        printf("\n %d",Digito);
+        // Soma o digito obtido em SeqDig1 ou SeqDig2
+        switch( i )
+            {
+                case 4: SeqDig2 += Digito; break;
+                case 3: SeqDig2 += (Digito*10); break;
+                case 2: SeqDig1 += Digito; break;
+                case 1: SeqDig1 += (Digito*10); break;
+            }
+        i--;
+    }
+    printf("\n %d",SeqDig1);
+    printf("\n %d",SeqDig2);
+
+    // Passo 3 - Soma as 2 sequ?ncias de digitos DIG1 + SeqDig2
+    Soma = SeqDig1 + SeqDig2;
+
+    // Passo 4 - Gera o Digito R para an?lise na tabela de classifica??o
+    R = Soma % 5;
+
+    // Passo 5 - Mostra a classifica??o
+    printf("\n O perfil para a Data de Nascimento e: ");
+    switch( R )
+        {
+            case 0: printf("Timido"); break;
+            case 1: printf("Sonhador"); break;
+            case 2: printf("Paquerador"); break;
+            case 3: printf("Atraente"); break;
+            case 4: printf("Irresistivel"); break;
+            default : printf("SEM CLASSIFICACAO"); break;
+        }
+
+    //getch();
+
+    return 0;
+}
+*/
+
+/*
+4.6 Dado um valor n, exiba uma contagem regressiva do valor at? atingir zero.
+Por exemplo: n = 10, resultado = 10 9 8 7 6 5 4 3 2 1 0
+
+Observa??o: Utilizar o comando de repeti??o for
+
+Dados para teste:
+Numero  resultado
+10      10 9 8 7 6 5 4 3 2 1 0
+4       4 3 2 1 0
+-5
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int Numero, i;
+
+    // Informa o Numero
+    printf("informe o Numero: ");
+    scanf("%d",&Numero);
+
+
+    // Monta o loop (com for) para fazer a contagem regressiva
+    printf("\n Contagem regressiva = ");
+    for (i=Numero;i>=0;i--)
+        printf("%d ",i);
+
+
+    //getch();
+
+    return 0;
+}
+
+*/
+
+/*
+4.7 A s?rie de Fibonacci ? 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+Os dois primeiros termos s?o iguais a 1 e, a partir do terceiro,
+o termo ? dado pela soma dos dois termos anteriores.
+Dado um n?mero n >= 3, exiba os n?meros da s?rie de Fibonacci at? n.
+Por exemplo: n = 21, resultado = 1, 1, 2, 3, 5, 8, 13, 21
+
+Observa??o: Utilizar o comando de repeti??o while
+
+Dados para teste:
+Numero  resultado
+21      1 1 2 3 5 8 13 21
+89      1 1 2 3 5 8 13 21 34 55 89
+25      1 1 2 3 5 8 13 21 34
+2       Numero informado invalido (deve ser >= 3)!
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int Numero, Atual, Anterior1, Anterior2;
+
+    // Informa o Numero
+    printf(" Informe o Numero: ");
+    scanf("%d",&Numero);
+
+    // Verifica se o Numero informado e valido (>= 3)
+    if (Numero < 3) printf (" Numero informado invalido (deve ser >= 3)!");
+    else
+        {
+            // Monta a estrutura de repeticao (com while) para apresentar o resultado
+            printf(" A serie de Fibonacci para o Numero e = 1 ");
+
+            // Inicializa as variaveis
+            Anterior1 = 0;
+            Anterior2 = 1;
+            Atual     = 0;
+
+            while (Atual < Numero)
+                {
+                    // Soma ao valor Atual o seu antecessor
+                    Atual = (Anterior1 + Anterior2);
+
+                    printf("%d ",Atual);
+
+                    // Atualiza os valores Anteriores (Anterior1 e Anterior2)
+                    Anterior1  = Anterior2;
+                    Anterior2  = Atual;
+
+                    //
+
+                }
+
+        }
+
+
+    //getch();
+
+    return 0;
+}
+*/
+
+/*
+4.8 Em um banco, as contas s?o identificadas por n?meros de at? seis d?gitos seguidos de um d?gito verificador (DV) tamb?m chamado de d?gito de controle, calculado conforme exemplificado a seguir. Dado um n?mero de conta n, exiba o n?mero de conta completo correspondente (n?mero + DV).
+
+Exemplo: seja n = 7314 o n?mero da conta.
+
+1?) Adicionamos os d?gitos de n e obtemos a soma s = 4+1+3+7 = 15;
+2?) Calculamos o resto da divis?o de s por 10 e obtemos o d?gito d = 5.
+
+Resultado: N?mero de conta completo: 007314-5
+
+Observa??o: Utilizar o comando de repeti??o while
+
+Dados para teste:
+Numero  resultado
+7314    7314-5
+0001    1-1
+1234    1234-0
+6033    6033-2
+
+
+// Primeira vers?o - Com separa??o de digitos do numero por sucessivas divis?es por 10
+
+#include <stdio.h>
+
+int main()
+{
+    int Numero, Soma, Digito, Dividendo, DV;
+
+    // Informa o Numero
+    printf(" Informe o Numero da Conta: ");
+    scanf("%d",&Numero);
+
+    // Monta o loop para separa??o de cada digito do numero (baseado na divis?o por 10)
+    Dividendo = Numero;
+    Soma = 0;
+
+    while( Dividendo != 0 )
+    {
+        Digito = Dividendo % 10;
+        Dividendo /= 10;
+
+        // Soma o digito obtido
+        Soma += Digito;
+    }
+
+    // Calcula do DV. Resto da divis?o por 10 da somat?ria dos digitos
+    DV = (Soma % 10);
+
+    // Apresenta o resultado
+    printf("\n O Numero completo da Conta e: %d - %d ",Numero,DV);
+
+
+
+    //getch();
+
+    return 0;
+}
+
+
+// Segunda vers?o - Com uso de vetor para informar o n?mero da conta
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int Numero, Soma, Digito, Dividendo, DV, i;
+    char Conta[7], DigChar;
+
+
+    // Informa o Numero
+    printf(" Informe o Numero da Conta: ");
+    //scanf("%d",&Numero);
+    scanf("%6s",&Conta);
+
+    // Monta o loop para separa??o de cada digito do numero (baseado na divis?o por 10)
+    //Dividendo = atoi(Conta);
+    Dividendo = Conta - '0';
+    //Conta = (char) Numero;
+    Soma = 0;
+    i = 0;
+
+    while( i <= 5 )
+    {
+        DigChar = Conta[i];
+        if (DigChar == '\0') break;
+        Digito = DigChar - '0';
+        printf("\n%d",Conta[i]);
+        printf("\n%d",Digito);
+        Dividendo /= 10;
+
+        // Soma o digito obtido
+        Soma += Digito;
+        i++;
+
+    }
+    printf("\n%d",Soma);
+    // Calcula do DV. Resto da divis?o por 10 da somat?ria dos digitos
+    DV = (Soma % 10);
+
+    // Apresenta o resultado
+    printf("\n O Numero completo da Conta e: %s - %d ",Conta,DV);
+
+
+
+    //getch();
+
+    return 0;
+}
+*/
